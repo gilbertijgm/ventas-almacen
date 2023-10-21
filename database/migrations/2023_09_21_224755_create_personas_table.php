@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('direccion',80);
             $table->string('tipo_persona',20);
             $table->tinyInteger('estado')->default(1);
-            $table->unsignedBigInteger('documento_id')->unique();
+            $table->foreignId('documento_id')->unique()->constrained('documentos')->onDelete('cascade');
             $table->timestamps();
         });
     }

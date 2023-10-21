@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Documento extends Model
@@ -12,9 +13,9 @@ class Documento extends Model
 
     protected $guarded = [];
 
-    public function persona(): HasOne
+    public function persona(): HasMany
     {
-        return $this->hasOne(Persona::class);
+        return $this->hasMany(Persona::class);
     }
 
 }
